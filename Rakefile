@@ -1,11 +1,10 @@
-require 'rake/extensiontask'
-Rake::ExtensionTask.new('polygon')
+#require 'rake/extensiontask'
 
 # Building tasks
-spec = Gem::Specification.load('faye-websocket.gemspec')
 if RUBY_PLATFORM =~ /java/
   require 'rake/javaextensiontask'
-  Rake::JavaExtensionTask.new('local_geocoder_geometry', spec)
+  spec = Gem::Specification.load('local-geocoder.gemspec')
+  Rake::JavaExtensionTask.new('geometry', spec)
 end
 
 namespace :convert do

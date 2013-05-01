@@ -7,7 +7,7 @@ module LocalGeocoder
     end
   end
 
-  class Polygon
+  class ZPolygon
     attr_accessor :points
     
     def initialize(points)

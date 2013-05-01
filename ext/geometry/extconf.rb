@@ -1,5 +1,5 @@
 require 'mkmf'
-extension_name = 'local_geocoder_geometry'
+extension_name = 'geometry'
 dir_config(extension_name)
 create_makefile(extension_name)
 
