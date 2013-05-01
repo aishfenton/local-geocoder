@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "../lib"))
+require "local_geocoder"
+require "trollop"
+
+DEFAULT_TEMPLATE = '(?<lng>\-?\d+.?\d+)[,\t ](?<lat>\-?\d+.?\d+)'
+
+opts = Trollop::options do
+  version "local_geocode #{LocalGeocoder::VERSION}"
+  banner <<-EOS
+
+  Local Geocoder
+
+  Reverse geocodes the given lng,lat pair  
+
+Usage:
+  local_geocode [options] file 
+
+Where [options] are:
+
+Example:
+  local_geocode 
+  > USA, California, San Francisco
+  
+EOS
+  opt 'template', "How input lines are parsed", :default => DEFAULT_TEMPLATE, :short => :t
+  opt 'output-format', "The format to output to. Options are: tsv, csv, json", :default => "tsv", :short => :o
+end
+
+require "local_geocoder"
+
+lc = LocalGeocoder::Geocoder.new
+ARGF.each_line do |l|
+  data = l.match(Regexp.new(opts["template"]))
+  result = if data.nil?
+    LocalGeocoder::Result.new
+  else
+    lng, lat = data[:lng].to_f, data[:lat].to_f 
+    lc.reverse_geocode(lng, lat)
+  end
+  puts result.inspect
+end
