@@ -1,6 +1,13 @@
 require 'rake/extensiontask'
 Rake::ExtensionTask.new('polygon')
 
+# Building tasks
+spec = Gem::Specification.load('faye-websocket.gemspec')
+if RUBY_PLATFORM =~ /java/
+  require 'rake/javaextensiontask'
+  Rake::JavaExtensionTask.new('local_geocoder_geometry', spec)
+end
+
 namespace :convert do
 
   desc "Converts geo-json file structure as found at 'world.geo.json' into the format we expect"

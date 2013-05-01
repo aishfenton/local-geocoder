@@ -1,4 +1,3 @@
-group :development, :test do
-  gem "rspec"
-  gem "rake-compiler"
-end
+source 'https://rubygems.org'
+
+gemspec

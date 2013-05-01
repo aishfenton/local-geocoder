@@ -1,0 +1,28 @@
+PATH
+  remote: .
+  specs:
+    local-geocoder (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    diff-lcs (1.2.4)
+    rake (10.0.4)
+    rake-compiler (0.8.3)
+      rake
+    rspec (2.13.0)
+      rspec-core (~> 2.13.0)
+      rspec-expectations (~> 2.13.0)
+      rspec-mocks (~> 2.13.0)
+    rspec-core (2.13.1)
+    rspec-expectations (2.13.0)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.13.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  local-geocoder!
+  rake-compiler
+  rspec
