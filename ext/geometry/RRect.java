@@ -89,7 +89,7 @@ public class RRect extends RubyObject {
   @JRubyMethod(name = "inspect")
   public IRubyObject inspect(ThreadContext context) {
     Ruby ruby = context.getRuntime();
-    String str = String.format("[%s, %s], [%s, %s]", rect.getX(),rect.getY(),rect.getX()+rect.getWidth(),rect.getY()+rect.getHeight()); 
+    String str = String.format("[%s,%s],[%s,%s]", rect.getX(),rect.getY(),rect.getX()+rect.getWidth(),rect.getY()+rect.getHeight()); 
     return ruby.newString(str);
   }
   

@@ -16,7 +16,7 @@ public class Polygon {
   public int numberOfPoints() {
     return this.points.length;
   }
-
+ 
   public Rect boundingBox() {
     if (boundingBox == null) {
       double minX, minY, maxX, maxY;
@@ -24,20 +24,21 @@ public class Polygon {
       maxX = maxY = Double.NEGATIVE_INFINITY;
 
       for (Point p: this.points) {
+        
         double x = p.getX();
         double y = p.getY();
 
         if (x < minX) 
           minX = x;
-        else if (x > maxX)
+        if (x > maxX)
           maxX = x;
 
         if (y < minY) 
           minY = y;
-        else if (y > maxY)
+        if (y > maxY)
           maxY = y;
       }
-      
+       
       this.boundingBox = new Rect(minX, minY, maxX-minX, maxY-minY); 
     }
  

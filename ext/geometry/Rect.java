@@ -13,7 +13,7 @@ public class Rect {
     this.width = width;
     this.height = height;
   } 
- 
+  
   public boolean containsPoint(Point point) {
     return point.getX() >= this.x && point.getY() >= this.y &&
            point.getX() <= (this.x + this.width) && point.getY() <= (this.y + this.height);
