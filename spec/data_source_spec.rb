@@ -23,7 +23,7 @@ describe LocalGeocoder::DataSource do
     it "Gives each entity a valid set of geometries" do
       data_source.countries.each do |c|
         c.geometries.should be_kind_of Array
-        c.geometries.each { |g| g.should be_kind_of LocalGeocoder::Polygon }
+        c.geometries.each { |g| g.should be_kind_of LocalGeocoder::Geometry::Polygon }
         c.geometries.each { |g| g.number_of_points.should > 4 }
       end
     end 

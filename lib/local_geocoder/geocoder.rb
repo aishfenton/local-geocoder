@@ -27,7 +27,7 @@ module LocalGeocoder
     end
     
     def find_country(lng, lat)
-      @data_source.countries.find { |c| contains_location?(c, lng, lat) }
+      @data_source.countries.find { |c|  contains_location?(c, lng, lat); }
     end
 
     def find_administrative_areas(country_id, lng, lat)
@@ -39,7 +39,7 @@ module LocalGeocoder
     end
 
     def contains_location?(entity, lng, lat)
-      entity.geometries.any? { |g| g.contains_point?(Point.new(lng, lat)) }
+      entity.geometries.any? { |g| g.contains_point?(Geometry::Point.new(lng, lat)) }
     end
 
   end

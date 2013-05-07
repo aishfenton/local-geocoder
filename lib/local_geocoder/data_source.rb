@@ -42,9 +42,9 @@ module LocalGeocoder
         # Note: Perimeter is always first element in GeoJSON.
         geometries = case f['geometry']['type']
         when "MultiPolygon"
-          f['geometry']['coordinates'].map { |g| Polygon.from_point_array(g.first) }
+          f['geometry']['coordinates'].map { |g| Geometry::Polygon.from_point_array(g.first) }
         when "Polygon"
-          Array(Polygon.from_point_array(f['geometry']['coordinates'].first))
+          Array(Geometry::Polygon.from_point_array(f['geometry']['coordinates'].first))
         else
           raise "Don't know how to handle geometry type: #{f['geometry']['type']}"
         end

@@ -14,6 +14,8 @@ Gem::Specification.new do |s|
   
   s.files = files 
 
+  s.add_dependency "trollop"
+  
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake-compiler"
 end

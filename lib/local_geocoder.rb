@@ -5,15 +5,19 @@ module LocalGeocoder
   VERSION = '0.0.1'
 end
 
-#require "local_geocoder/point"
-require "local_geocoder/polygon"
 require "local_geocoder/data_source"
 require "local_geocoder/geocoder"
 
 if RUBY_PLATFORM =~ /java/
   require 'jruby'
   require 'geometry.jar' 
+
+  java_import 'geometry.GeometryService' 
   
-  com.afenton.local_geocoder.Geometry.new.basicLoad(JRuby.runtime)
+  Java::Geometry::GeometryService.new.basicLoad(JRuby.runtime)
+else
+  require "local_geocoder/geometry/point"
+  require "local_geocoder/geometry/rect"
+  require "local_geocoder/geometry/polygon"
 end
 
