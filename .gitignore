@@ -5,6 +5,7 @@ pkg
 .yardoc
 _yardoc
 doc/
+tmp/
 
 # OS files
 .DS_Store
