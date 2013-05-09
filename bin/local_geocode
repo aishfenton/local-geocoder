@@ -3,29 +3,27 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "../lib"))
 require "local_geocoder"
 require "trollop"
+require "csv"
 
 DEFAULT_TEMPLATE = '(?<lng>\-?\d+.?\d+)[,\t ]\s?(?<lat>\-?\d+.?\d+)'
 
 opts = Trollop::options do
   version "local_geocode #{LocalGeocoder::VERSION}"
   banner <<-EOS
-
-  Local Geocoder
-
-  Reverse geocodes the given lng,lat pair  
+Local Geocoder
+---------------
+Reverse geocodes given lng,lat pairs into Country codes (and State + County within the USA). Each line of Stdin is read and has lng,lat pairs extracted (see --template below for how) and the resulting reverse geocode is output to Stdout.
 
 Usage:
-  local_geocode [options] file 
-
-Where [options] are:
+  local_geocode [options] file
 
 Example:
-  local_geocode 
-  > USA, California, San Francisco
-  
+> echo "-122.4194155, 37.7749295" | local_geocode 
+> United States of America (USA), California (CA), San Francisco
+ 
+Options:
 EOS
-  opt 'template', "How input lines are parsed", :default => DEFAULT_TEMPLATE, :short => :t
-  opt 'output-format', "The format to output to. Options are: tsv, csv, json", :default => "tsv", :short => :o
+  opt 'template', "The regex used to parse lng,lat paris from the input stream", :default => DEFAULT_TEMPLATE, :short => :t
 end
 
 require "local_geocoder"
@@ -40,4 +38,5 @@ ARGF.each_line do |l|
     lc.reverse_geocode(lng, lat)
   end
   puts result.inspect
+
 end
