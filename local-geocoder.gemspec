@@ -1,7 +1,9 @@
+require "./lib/local_geocoder/version"
+
 Gem::Specification.new do |s|
   s.name    = "local-geocoder"
-  s.version = '0.1.0'
-  s.summary = "Reverse geocodes a lat,lng to a country code (plus State for the US only). Runs locally, with no dependancies, and is fast enough for large batch jobs"
+  s.version = LocalGeocoder::VERSION
+  s.summary = "Reverse geocodes lng, lat pairs into country codes (plus State and Counties within the US). Runs locally, with no external dependancies, and is fast enough for large batch jobs"
   s.author  = "Aish Fenton"
   
   files = Dir.glob("ext/**/*.{java,rb}") +
@@ -12,8 +14,7 @@ Gem::Specification.new do |s|
     files << "lib/local_geocoder_geometry.jar"
   end
   
-  s.files = files 
-
+  s.files = files
   s.add_dependency "trollop"
   
   s.add_development_dependency "rspec"

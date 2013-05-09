@@ -39,9 +39,8 @@ describe LocalGeocoder::Geometry::Polygon do
     context "Complex shapes" do
 
       it "Returns true if point lies within polygon" do
-        p fairfax_county.bounding_box, fairfax_county.bounding_box.contains_point?(LocalGeocoder::Geometry::Point.new(-77.3570028, 38.9586307))
-        #sf_boundary.contains_point?(LocalGeocoder::Geometry::Point.new(-122.425557, 37.7813481)).should be_true
-        #nzl_si_boundary.contains_point?(LocalGeocoder::Geometry::Point.new(173, -42)).should be_true
+        sf_boundary.contains_point?(LocalGeocoder::Geometry::Point.new(-122.425557, 37.7813481)).should be_true
+        nzl_si_boundary.contains_point?(LocalGeocoder::Geometry::Point.new(173, -42)).should be_true
         fairfax_county.contains_point?(LocalGeocoder::Geometry::Point.new(-77.3570028, 38.9586307)).should be_true
       end
 

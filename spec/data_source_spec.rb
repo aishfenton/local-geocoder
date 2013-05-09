@@ -3,7 +3,6 @@ require "local_geocoder"
 describe LocalGeocoder::DataSource do
 
   let(:data_source) { LocalGeocoder::DataSource.new("./data") }
-
   
   describe "#countries" do
 
