@@ -1,5 +1,6 @@
 Local geocoder
 ==============
+[![Build Status](https://travis-ci.org/aishfenton/local-geocoder.png?branch=master)](https://travis-ci.org/aishfenton/local-geocoder)
 
 Reverse geocodes lng, lat pairs into country codes (plus State and Counties within the US). Runs locally, with no external dependancies, and is fast enough for large batch jobs (10,000 reverse geocodes per minute using the JRuby extention).
 
