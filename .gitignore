@@ -6,6 +6,7 @@ pkg
 _yardoc
 doc/
 tmp/
+.ruby-version
 
 # OS files
 .DS_Store
