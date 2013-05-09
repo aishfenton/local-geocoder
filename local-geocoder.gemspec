@@ -16,7 +16,9 @@ Gem::Specification.new do |s|
   
   s.files = files
   s.add_dependency "trollop"
-  
+
+  s.executables << 'local_geocode'
+
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake-compiler"
