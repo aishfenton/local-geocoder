@@ -12,7 +12,7 @@ opts = Trollop::options do
   banner <<-EOS
 Local Geocoder
 ---------------
-Reverse geocodes given lng,lat pairs into Country codes (and State + County within the USA). Each line of Stdin is read and has lng,lat pairs extracted (see --template below for how) and the resulting reverse geocode is output to Stdout.
+Reverse geocodes lng,lat pairs into Country codes (and State + County within the USA). Each line of Stdin is read and has lng,lat pairs extracted (see --template below for how) and the resulting reverse geocode is output to Stdout.
 
 Usage:
   local_geocode [options] file
