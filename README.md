@@ -1,7 +1,7 @@
 Local geocoder
 ==============
 
-Reverse geocodes lat,lng pairs into country code (plus State and Counties for the US). Runs locally, with no external dependancies, and is fast enough for large batch jobs (10,000 reverse geocodes per minute using the JRuby extention).
+Reverse geocodes lng, lat pairs into country codes (plus State and Counties within the US). Runs locally, with no external dependancies, and is fast enough for large batch jobs (10,000 reverse geocodes per minute using the JRuby extention).
 
 # Installation
 
@@ -39,9 +39,20 @@ Options:
           --help, -h:   Show this message
 ```
 
-# JRuby extension
+# FAQ
 
-If you're running JRuby then a java native extension is used instead. No need to do anything - it should be picked up automatically. For large batch jobs performance should be~ 10X faster. If performance is a concern (i.e. you're geocoding a huge batch of lng,lats) then I suggest you use JRuby with this gem, performance should be in the ballpark of a native-C version.
+## Why use gem this instead of geocoder X.
+
+Most geocoder gems (actually all last time that I checked) use an external web service to do their reverse geocoding (such as Google, Yahoo!, etc). And all of these service have some sort of limit on how many reverse geocodes you can do per day. Also calling an external web service is slow. This gem does everything locally, so it runs fast, and doesn't have any limits on how many reverse geocodes you can do. The tradeoff is that it only provides coarse results. So if you have a large number of lng, lats that need to be translated into countries, then this gem should work for you. Otherwise you're probably better off using another gem.   
+
+
+## How do I get a street address?
+
+You don't. See 'Why use gem this instead of geocoder X'.
+
+## JRuby extension
+
+If you're running JRuby then a java native extension is used. No need to do anything - it should be picked up automatically. For large batch jobs performance will be ~10X faster. If performance is a concern (i.e. you're geocoding a large batch of lng, lats) then I suggest you use JRuby to run this gem, as performance should be in the ballpark of native code.
 
 # Contributing and issues
 
@@ -49,4 +60,4 @@ I expect there's still some issues with country borders (the dataset we've based
 
 # Attribution
 
-Country, State, and County boundaries are based on an original dataset by https://github.com/johan/world.geo.json.
+Country, State, and County boundaries are based on an original dataset at https://github.com/johan/world.geo.json.
