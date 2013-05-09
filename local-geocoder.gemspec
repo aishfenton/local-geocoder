@@ -11,12 +11,13 @@ Gem::Specification.new do |s|
   
   if RUBY_PLATFORM =~ /java/
     s.platform = "java"
-    files << "lib/local_geocoder_geometry.jar"
+    files << "lib/geometry.jar"
   end
   
   s.files = files
   s.add_dependency "trollop"
   
+  s.add_development_dependency "rake"
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake-compiler"
 end

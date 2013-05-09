@@ -1,4 +1,16 @@
-#require 'rake/extensiontask'
+require 'rspec/core/rake_task'
+
+task :default => [:build, :spec]
+
+desc "Builds native extensions"
+task :build do
+  if RUBY_PLATFORM =~ /java/
+    Rake::Task["clean"].invoke 
+    Rake::Task["compile"].invoke 
+  end
+end
+
+RSpec::Core::RakeTask.new(:spec)
 
 # Building tasks
 if RUBY_PLATFORM =~ /java/

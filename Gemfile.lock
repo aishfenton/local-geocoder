@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    local-geocoder (0.1.0)
+    local-geocoder (0.1.0-java)
       trollop
 
 GEM
@@ -22,9 +22,11 @@ GEM
     trollop (2.0)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES
   local-geocoder!
+  rake
   rake-compiler
   rspec
