@@ -44,7 +44,7 @@ Options:
 
 ### Why use gem this instead of geocoder X.
 
-Most geocoder gems (actually all last time that I checked) use an external web service to do their reverse geocoding (such as Google, Yahoo!, etc). And all of these service have some sort of limit on how many reverse geocodes you can do per day. Also calling an external web service is slow. This gem does everything locally, so it runs fast, and doesn't have any limits on how many reverse geocodes you can do. The tradeoff is that it only provides coarse results. So if you have a large number of lng, lats that need to be translated into countries, then this gem should work for you. Otherwise you're probably better off using another gem.   
+Most geocoder gems (actually all last time that I checked) use an external web service to do their reverse geocoding (such as Google, Yahoo!, etc). And all have some sort of limit on how many reverse geocodes you can do per day. Also calling an external web service is slow. This gem does everything locally, so it runs fast, and doesn't have any limits on how many reverse geocodes you can do. The tradeoff is that it only provides coarse results. So if you have a large number of lng, lats that need to be translated into countries, then this gem should work for you. Otherwise you're probably better off using another gem.   
 
 
 ### How do I get a street address?
