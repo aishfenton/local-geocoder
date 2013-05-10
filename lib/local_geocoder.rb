@@ -1,7 +1,7 @@
 require "json"
 
 module LocalGeocoder
-  DATA_DIR = "data"
+  DATA_DIR = File.join(File.dirname(__FILE__), "../data")
 end
 
 require "local_geocoder/version"
