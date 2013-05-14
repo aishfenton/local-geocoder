@@ -59,6 +59,10 @@ If you're running JRuby then a java native extension is used. No need to do anyt
 
 I expect there's still some issues with country borders (the dataset we've based our's off is fairly coarse for geocoder purposes). If you find a country (or state/county) that is being incorrectly geocoded then raise an issue on the github repo and provide the lng/lat along with what result you were expecting. Also please note that several of the borders are still disputed. 
 
+# Other platforms
+
+Richard Hopton has put together a .NET port here: https://github.com/richardhopton/LocalGeocoder
+
 # Attribution
 
 Country, State, and County boundaries are based on an original dataset at https://github.com/johan/world.geo.json.
