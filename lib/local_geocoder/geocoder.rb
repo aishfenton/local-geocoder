@@ -10,10 +10,16 @@ module LocalGeocoder
   
   class Geocoder
     
-    def initialize
-      @data_source = DataSource.new(DATA_DIR) 
+    attr_reader :data_dir
+    
+    def initialize(data_dir=DATA_DIR)
+      @data_dir = data_dir
     end
 
+    def data_source()
+      @data_source ||= DataSource.new(@data_dir)
+    end
+    
     def reverse_geocode(lng, lat)
       country = find_result(lng, lat)
     end
@@ -27,14 +33,14 @@ module LocalGeocoder
     end
     
     def find_country(lng, lat)
-      @data_source.countries.find { |c|  contains_location?(c, lng, lat); }
+      data_source().countries.find { |c|  contains_location?(c, lng, lat); }
     end
 
     def find_administrative_areas(country_id, lng, lat)
-      aa1 = @data_source.administrative_areas_level_1(country_id).find { |a| contains_location?(a, lng, lat) }
+      aa1 = data_source().administrative_areas_level_1(country_id).find { |a| contains_location?(a, lng, lat) }
       return nil,nil if aa1.nil?
 
-      aa2 = @data_source.administrative_areas_level_2(country_id, aa1.short_name).find { |a| contains_location?(a, lng, lat) }
+      aa2 = data_source().administrative_areas_level_2(country_id, aa1.short_name).find { |a| contains_location?(a, lng, lat) }
       return aa1, aa2
     end
 

@@ -6,6 +6,11 @@ describe LocalGeocoder::Geocoder do
   let(:sf) { [-122.4022462, 37.7892022] }
   let(:auckland) { [174.7758815, -36.7764613] }
 
+  it "Can have a configurable directory" do
+    test = LocalGeocoder::Geocoder.new("/tmp/test") 
+    test.data_dir.should == "/tmp/test"
+  end
+  
   it "Returns a result" do
     gc.reverse_geocode(*auckland).should be_kind_of LocalGeocoder::Result
   end
