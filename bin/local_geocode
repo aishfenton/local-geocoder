@@ -7,7 +7,7 @@ require "csv"
 DEFAULT_TEMPLATE = '(?<lng>\-?\d+.?\d+)[,\t ]\s?(?<lat>\-?\d+.?\d+)'
 
 opts = Trollop::options do
-  version "local_geocode #{LocalGeocoder::VERSION}"
+  version "local_geocode #{LocalGeocoder::VERSION}"  
   banner <<-EOS
 Local Geocoder
 ---------------
@@ -22,12 +22,13 @@ Example:
  
 Options:
 EOS
+  opt 'data_dir', "Directory from which boundary data will be read", :default => LocalGeocoder::DATA_DIR
   opt 'template', "The regex used to parse lng,lat paris from the input stream", :default => DEFAULT_TEMPLATE, :short => :t
 end
 
 require "local_geocoder"
 
-lc = LocalGeocoder::Geocoder.new
+lc = LocalGeocoder::Geocoder.new(opts["data_dir"])
 ARGF.each_line do |l|
   data = l.match(Regexp.new(opts["template"]))
   result = if data.nil?
