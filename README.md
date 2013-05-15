@@ -61,7 +61,7 @@ I expect there's still some issues with country borders (the dataset we've based
 
 # Other platforms
 
-Richard Hopton has put together a .NET port here: https://github.com/richardhopton/LocalGeocoder
+Richard Hopton has put together a .NET port here: https://github.com/opentable/nLocalGeocoder
 
 # Attribution
 
